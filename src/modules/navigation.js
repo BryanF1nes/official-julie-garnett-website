@@ -4,8 +4,10 @@ import books from '../assets/books.png';
 import contactMe from '../assets/contact-me.png';
 import events from '../assets/events.png';
 import parents from '../assets/parents.png';
+import { AboutMe } from './aboutMe';
 
 export const Navigation = (() => {
+    const modules = { aboutMe: AboutMe }
     const pages = ['aboutMe', 'parents', 'books', 'contactMe', 'events'];
     const images = { aboutMe, books, contactMe, events, parents }
     const el = {
@@ -40,7 +42,7 @@ export const Navigation = (() => {
 
         path.setAttribute('fill', '#B495F5');
         path.setAttribute('d', 'M0,96 C240,160 480,160 720,130 C960,100 1200,50 1440,90 L1440,320 L0,320 Z');
-        setAttrubte
+
         svg.appendChild(path);
 
         linkContainer.appendChild(image);
@@ -59,6 +61,9 @@ export const Navigation = (() => {
 
             img.src = images[link]
             button.appendChild(img);
+            button.addEventListener('click', () => {
+                modules[link].init();
+            })
             el.linkContainer().appendChild(button);
         });
     }

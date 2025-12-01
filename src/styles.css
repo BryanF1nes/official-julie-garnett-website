@@ -67,7 +67,7 @@ p {
 /** CSS RESET **/
 /** Banner **/
 .banner-header {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -94,7 +94,7 @@ p {
 
 /** Navigation **/
 .navigation {
-    padding-top: 400px;
+    padding-top: 500px;
     background-image: url('./assets/backsplash.png');
     background-size: cover;
     background-position: center;
