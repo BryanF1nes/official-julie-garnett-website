@@ -13,9 +13,13 @@ export const HomePage = (() => {
     const init = () => {
         Header.init();
         Navigation.init();
-        el.content().append(authorSection(), bookContent());
+        mainContent();
         Footer.init();
     };
+
+    const mainContent = () => {
+        return el.content().append(authorSection(), bookContent());
+    }
 
     const authorSection = () => {
         const authorSec = document.createElement('section');

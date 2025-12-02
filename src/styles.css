@@ -295,6 +295,7 @@ p {
         background-color: #0000;
         border: none;
         color: white;
+        cursor: pointer;
     }
 }
 
