@@ -677,7 +677,7 @@ footer {
    }
 
    #contactMe {
-      right: -60px;
+      right: -80px;
    }
 
    #events {
@@ -688,11 +688,11 @@ footer {
    .link-container {
 
       img {
-         width: 150px;
+         width: 250px;
       }
 
       .link {
-         width: 80px;
+         width: 120px;
       }
 
       svg {
@@ -726,8 +726,44 @@ footer {
    }
 }
 
-@media (max-width: 325px) {
+@media (max-width: 400px) {
    .book-blurb {
       width: 200px;
+   }
+
+   #aboutMe {
+      left: -20px;
+   }
+
+   #parents {
+      left: -30px;
+   }
+
+   #books {
+      right: -20px;
+   }
+
+   #contactMe {
+      right: -50px;
+   }
+
+   #events {
+      right: -20px;
+   }
+
+
+   .link-container {
+
+      img {
+         width: 180px;
+      }
+
+      .link {
+         width: 80px;
+      }
+
+      svg {
+         width: 100%;
+      }
    }
 }
