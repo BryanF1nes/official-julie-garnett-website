@@ -616,8 +616,37 @@ footer {
     margin: 0 2rem;
 }
 
+.char-counter {
+    font-size: 0.8rem;
+    text-align: right;
+    color: #666;
+    margin-top: 4px;
+    display: block;
+}
+
 .hidden {
     display: none;
+}
+
+.confirmation-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    padding: 10px;
+    z-index: 10;
+    width: 100%;
+
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        color: white;
+        padding: 10px 50px;
+        background-color: green;
+        width: 400px;
+    }
 }
 
 /** Seasonal Effects **/

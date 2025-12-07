@@ -4,16 +4,17 @@ import { EventHandler } from "./displayController";
 import { EmailJS } from "./email";
 
 export const ContactMe = (() => {
+    const MAXLENGTH = 300;
     const formElements = [
         {
             label: "Name",
             inputType: "text",
-            placeHolder: "Enter your name...",
+            placeHolder: "Enter your name",
         },
         {
             label: "Email",
             inputType: "email",
-            placeHolder: "Enter your email...",
+            placeHolder: "Enter your email",
         },
         {
             label: "Subject",
@@ -23,7 +24,7 @@ export const ContactMe = (() => {
         {
             label: "Message",
             inputType: null,
-            placeHolder: "Send me a message!",
+            placeHolder: "Don't be shy, send me a message!",
         }
     ]
 
@@ -70,16 +71,31 @@ export const ContactMe = (() => {
             let input;
             if (el.label === "Message") {
                 input = document.createElement("textarea");
+                input.setAttribute("placeholder", el.placeHolder);
+                input.setAttribute("maxlength", MAXLENGTH);
                 input.name = "message"
+                console.log(input.value.length);
+
+                const counter = document.createElement("span");
+                counter.className = "char-counter";
+                counter.textContent = `Remaining: ${input.value.length} of ${MAXLENGTH}`;
+
+                input.addEventListener("input", () => {
+                    counter.textContent = `Remaining: ${input.value.length} of ${MAXLENGTH}`;
+                })
+
+                elementContainer.append(label, input, counter);
+
             } else {
                 input = document.createElement("input");
                 input.type = el.inputType
                 input.name = el.label.toLowerCase();
+                input.setAttribute("placeholder", el.placeHolder);
+                elementContainer.append(label, input);
             }
 
             input.required = true;
 
-            elementContainer.append(label, input);
             emailForm.appendChild(elementContainer);
         });
 
