@@ -23,6 +23,9 @@ export const AboutMe = (() => {
 
     const init = () => {
         el.content().innerHTML = "";
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
 
         Header.init();
         el.content().appendChild(page());
