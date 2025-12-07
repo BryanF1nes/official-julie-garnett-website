@@ -528,6 +528,7 @@ footer {
 
         input {
             padding: 8px;
+            transition: border 0.2s ease;
         }
 
         input:focus {

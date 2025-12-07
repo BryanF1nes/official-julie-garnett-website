@@ -1,3 +1,5 @@
+let animationId = null;
+
 export const Header = (() => {
     const el = {
         content: () => document.getElementById('content'),
@@ -7,14 +9,18 @@ export const Header = (() => {
     }
 
     const render = () => {
-        el.content().appendChild(snowCanvas());
+        snowCanvas();
         snowEffect();
         createHeader();
     }
 
     const snowCanvas = () => {
+        let existing = document.getElementById("snow-canvas");
+        if (existing) return existing;
+
         const snow = document.createElement("canvas");
         snow.id = "snow-canvas";
+        document.body.appendChild(snow);
         return snow;
     }
 
@@ -22,20 +28,27 @@ export const Header = (() => {
         const canvas = document.getElementById("snow-canvas");
         const ctx = canvas.getContext("2d");
 
+        if (animationId) cancelAnimationFrame(animationId)
+
+        const maxFlakes = 100;
         let flakes = [];
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        function createFlakes() {
-            flakes.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                r: Math.random() * 3 + 1,
-                d: Math.random() + 1
-            });
+        function initFlakes() {
+            flakes = [];
+            for (let i = 0; i < maxFlakes; i++) {
+                flakes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    r: Math.random() * 3 + 1,
+                    d: Math.random() + 1
+                });
+            }
         }
 
-        function drawFlakes() {
+        function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             ctx.fillStyle = "white";
@@ -46,10 +59,11 @@ export const Header = (() => {
             });
             ctx.fill();
 
-            updateFlakes();
+            update();
+            animationId = requestAnimationFrame(draw);
         }
 
-        function updateFlakes() {
+        function update() {
             flakes.forEach(flake => {
                 flake.y += flake.d;
                 flake.x += Math.sin(flake.y * 0.01);
@@ -61,17 +75,15 @@ export const Header = (() => {
             });
         }
 
-        setInterval(() => {
-            if (flakes.length < 100) createFlakes();
-            drawFlakes();
-        }, 30);
-
         window.onresize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            initFlakes();
         };
 
-    }
+        initFlakes();
+        draw();
+    };
 
     const createHeader = () => {
         const bannerHeader = document.createElement('header');

@@ -5,6 +5,8 @@ import { EmailJS } from "./email";
 
 export const ContactMe = (() => {
     const MAXLENGTH = 300;
+    const MINLENGTH = 50;
+
     const formElements = [
         {
             label: "Name",
@@ -73,8 +75,8 @@ export const ContactMe = (() => {
                 input = document.createElement("textarea");
                 input.setAttribute("placeholder", el.placeHolder);
                 input.setAttribute("maxlength", MAXLENGTH);
+                input.setAttribute("minlength", MINLENGTH);
                 input.name = "message"
-                console.log(input.value.length);
 
                 const counter = document.createElement("span");
                 counter.className = "char-counter";
