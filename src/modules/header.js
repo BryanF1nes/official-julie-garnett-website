@@ -11,7 +11,19 @@ export const Header = (() => {
     const render = () => {
         snowCanvas();
         snowEffect();
+        banner("Merry Christmas! John 3:16 - For God so loved the world, that he gave his only Son");
         createHeader();
+    }
+
+    const banner = (message) => {
+        const banner = document.createElement("div");
+        const bannerMessage = document.createElement("h1");
+
+        banner.id = "banner";
+        bannerMessage.textContent = message;
+        banner.appendChild(bannerMessage);
+        document.body.appendChild(banner);
+        return banner;
     }
 
     const snowCanvas = () => {

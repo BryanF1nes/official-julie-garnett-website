@@ -633,6 +633,24 @@ footer {
     color: red;
 }
 
+#banner {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 8px;
+    background-color: rgba(0, 130, 54, 0.95);
+    z-index: 10;
+    cursor: default;
+
+    h1 {
+        font-size: 18px;
+        color: white;
+        text-align: center;
+    }
+}
+
 /** Seasonal Effects **/
 #snow-canvas {
     position: fixed;
