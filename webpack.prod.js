@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     mode: "production",
@@ -9,6 +10,7 @@ module.exports = {
         filename: "main.js",
         path: path.resolve(__dirname, "dist"),
         clean: true,
+        publicPath: "./",
     },
     devtool: "eval-source-map",
     devServer: {
@@ -16,6 +18,7 @@ module.exports = {
         watchFiles: ["./src/template.html"],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: "./src/template.html",
         }),
