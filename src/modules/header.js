@@ -9,8 +9,6 @@ export const Header = (() => {
     }
 
     const render = () => {
-        snowCanvas();
-        //snowEffect();
         createHeader();
     }
 
