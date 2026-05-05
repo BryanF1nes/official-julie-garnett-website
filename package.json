@@ -17,7 +17,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^13.0.1",
+    "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^7.1.2",
     "eslint": "^10.0.1",
     "gh-pages": "^6.3.0",
@@ -28,7 +28,7 @@
     "style-loader": "^4.0.0",
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack-dev-server": "^5.2.3"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1"
