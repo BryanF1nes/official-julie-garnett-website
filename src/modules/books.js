@@ -3,7 +3,8 @@ import { Footer } from "./footer";
 import { EventHandler } from "./displayController";
 import daisyBook from "../assets/daisys-delightful-day.png";
 import daisyAward from "../assets/bookfest-award.png";
-import comingSoon from "../assets/coming-soon.jpg";
+import samanthaSeeds from "../assets/samantha-seeds.png";
+//import comingSoon from "../assets/coming-soon.jpg";
 
 export const Books = (() => {
     const bookArray = [
@@ -19,14 +20,14 @@ export const Books = (() => {
             hasAward: true,
         },
         {
-            image: comingSoon,
+            image: samanthaSeeds,
             award: null,
-            bookTitle: "Seeds",
-            content: `Coming Soon - 2026!`,
+            bookTitle: "Samantha Seeds",
+            content: ``,
             awardSpan: null,
-            buyNow: false,
+            buyNow: true,
             buyNowLink: "https://www.authorhouse.com/en/bookstore/bookdetails/860746-daisys-delightful-day",
-            buyNowText: "Coming Soon",
+            buyNowText: "Pre-Order Now",
             hasAward: false,
         }
     ]

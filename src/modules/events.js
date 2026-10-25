@@ -2,19 +2,13 @@ import { Header } from "./header";
 import { Footer } from "./footer";
 import { EventHandler } from "./displayController";
 
+// Event Data
+// date:
+// description:
+// map:
+
 export const Events = (() => {
-    const events = [
-        {
-            date: "November 1st",
-            description: "Brook Point High School Fall Craft Fair",
-            map: "https://www.google.com/maps/place/Brooke+Point+High+School/@38.4064364,-77.3987603,17z/data=!3m1!4b1!4m6!3m5!1s0x89b6ef41148c2603:0x5e553d8ee0acfe6c!8m2!3d38.4064364!4d-77.3961854!16s%2Fm%2F026f92g?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D",
-        },
-        {
-            date: "December 13th",
-            description: "Brook Point High School Holiday Craft Fair",
-            map: "https://www.google.com/maps/place/Brooke+Point+High+School/@38.4064364,-77.3987603,17z/data=!3m1!4b1!4m6!3m5!1s0x89b6ef41148c2603:0x5e553d8ee0acfe6c!8m2!3d38.4064364!4d-77.3961854!16s%2Fm%2F026f92g?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D",
-        }
-    ];
+    const events = [];
 
     const el = {
         content: () => document.getElementById('content'),
@@ -42,37 +36,48 @@ export const Events = (() => {
         eventsContainer.className = "event-container";
         eventHeader.textContent = "Events!";
 
-        events.map((event, index) => {
+        if (events.length === 0) {
             const eventContainer = document.createElement('div');
-            const eventEl = document.createElement('div');
-            const eventText = document.createElement('p');
-            const locationPin = document.createElement('i');
+            const eventText = document.createElement('h3');
 
-            eventContainer.className = "ev-container";
-            eventContainer.id = index;
-            eventEl.className = "event";
+            eventText.textContent = 'Stay tuned for upcoming events!';
 
-            locationPin.className = "fa-solid fa-location-dot";
+            eventContainer.append(eventText);
+            eventsContainer.append(eventHeader, eventContainer);
+            eventsSection.appendChild(eventsContainer);
+        } else {
+            events.map((event, index) => {
+                const eventContainer = document.createElement('div');
+                const eventEl = document.createElement('div');
+                const eventText = document.createElement('p');
+                const locationPin = document.createElement('i');
 
-            let description = event.description;
-            if (description.length > 30) {
-                description = description.slice(0, 30) + "...";
-            }
+                eventContainer.className = "ev-container";
+                eventContainer.id = index;
+                eventEl.className = "event";
 
-            eventText.textContent = `${event.date} - ${description}`;
+                locationPin.className = "fa-solid fa-location-dot";
 
-            eventContainer.addEventListener("click", () => {
-                window.open(event.map);
-            })
+                let description = event.description;
+                if (description.length > 30) {
+                    description = description.slice(0, 30) + "...";
+                }
 
-            eventEl.append(eventText, locationPin);
-            eventContainer.appendChild(eventEl);
+                eventText.textContent = `${event.date} - ${description}`;
 
-            list.appendChild(eventContainer);
-        });
+                eventContainer.addEventListener("click", () => {
+                    window.open(event.map);
+                })
 
-        eventsContainer.append(eventHeader, list);
-        eventsSection.appendChild(eventsContainer);
+                eventEl.append(eventText, locationPin);
+                eventContainer.appendChild(eventEl);
+
+                list.appendChild(eventContainer);
+            });
+
+            eventsContainer.append(eventHeader, list);
+            eventsSection.appendChild(eventsContainer);
+        }
 
         return eventsSection;
     }

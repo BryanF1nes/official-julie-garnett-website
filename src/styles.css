@@ -448,6 +448,10 @@ footer {
             color: var(--secondary-purple-hover);
         }
 
+        h3 {
+            font-size: 24px;
+        }
+
         ul {
             display: flex;
             flex-direction: column;
