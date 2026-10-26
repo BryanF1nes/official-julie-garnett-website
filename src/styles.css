@@ -115,16 +115,153 @@ p {
     position: relative;
 }
 
-.link {
+
+/** Navigation Bubbles **/
+
+.navigation .link-container .link {
     position: absolute;
-    background-color: #0000;
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 132px;
+    aspect-ratio: 1;
+    height: auto;
+    padding: 12px;
+
+    /* Watercolor-inspired background */
+    background:
+        radial-gradient(circle at 35% 25%,
+            rgba(255, 255, 255, 0.98),
+            rgba(255, 247, 251, 0.94) 65%,
+            rgba(226, 211, 235, 0.9));
+
+    /* Main ink circle */
+    border: 2px solid #302a30;
+    border-radius: 50%;
+
+    /* Contrast against the background */
+    box-shadow:
+        0 4px 8px rgba(48, 42, 48, 0.15),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.75);
+
+    color: #302a30;
+    font-family: 'Unkempt', sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+
     cursor: pointer;
+    z-index: 1;
+
+    transition:
+        box-shadow 200ms ease,
+        background-color 200ms ease,
+        filter 200ms ease;
+}
+
+/* Rough outer ink ring */
+.navigation .link-container .link::before {
+    content: '';
+    position: absolute;
+    inset: -7px;
+
+    border: 2px solid #302a30;
+    border-radius: 46% 54% 49% 51% / 53% 46% 54% 47%;
+
+    transform: rotate(-8deg);
+    pointer-events: none;
+}
+
+/* Lighter, broken-looking inner ink ring */
+.navigation .link-container .link::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+
+    border: 1px dashed rgba(48, 42, 48, 0.7);
+    border-radius: 53% 47% 45% 55% / 46% 54% 48% 52%;
+
+    transform: rotate(10deg);
+    pointer-events: none;
+}
+
+
+/* Playful hover animation */
+.navigation .link-container .link:hover {
+    animation: bubble-pop 450ms ease-out;
+
+    background:
+        radial-gradient(circle at 35% 25%,
+            #fffaff 0%,
+            #f2e5ff 75%,
+            #d5bafa 100%);
+
+    box-shadow:
+        0 0 16px rgba(174, 149, 245, 0.45),
+        0 8px 18px rgba(48, 42, 48, 0.24),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.75);
+
+    filter: none;
+    z-index: 2;
+}
+
+/* Bounce, pop, and settle */
+@keyframes bubble-pop {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    30% {
+        transform: scale(1.1) rotate(-4deg);
+    }
+
+    55% {
+        transform: scale(0.96) rotate(3deg);
+    }
+
+    75% {
+        transform: scale(1.04) rotate(-1deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .navigation .link-container .link {
+        animation: none !important;
+        transition: none;
+    }
+}
+
+/* Individual bubble sizes */
+.navigation .link-container #aboutMe {
+    width: 145px;
+}
+
+.navigation .link-container #books {
+    width: 120px;
+}
+
+.navigation .link-container #parents {
+    width: 135px;
+}
+
+.navigation .link-container #contactMe {
+    width: 150px;
+}
+
+.navigation .link-container #events {
+    width: 115px;
 }
 
 #aboutMe {
     top: 0;
-    left: -50px;
+    left: -70px;
 }
 
 #contactMe {

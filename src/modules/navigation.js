@@ -1,9 +1,5 @@
+
 import illustratedJulie from '../assets/illustrated-julie.png';
-import aboutMe from '../assets/about-me.png';
-import books from '../assets/books.png';
-import contactMe from '../assets/contact-me.png';
-import events from '../assets/events.png';
-import parents from '../assets/parents.png';
 import { AboutMe } from './aboutMe';
 import { Parents } from './parents';
 import { ContactMe } from './contactMe';
@@ -11,66 +7,96 @@ import { Books } from './books';
 import { Events } from './events';
 
 export const Navigation = (() => {
-   const modules = { aboutMe: AboutMe, parents: Parents, contactMe: ContactMe, books: Books, events: Events }
-   const pages = ['aboutMe', 'parents', 'books', 'contactMe', 'events'];
-   const images = { aboutMe, books, contactMe, events, parents }
-   const el = {
-      content: () => document.getElementById('content'),
-      linkContainer: () => document.querySelector('.link-container'),
-   }
+    const modules = {
+        aboutMe: AboutMe,
+        parents: Parents,
+        contactMe: ContactMe,
+        books: Books,
+        events: Events,
+    };
 
-   const init = () => {
-      el.content().appendChild(createNavigation());
-      createLinks(pages);
-   }
+    const pages = [
+        'aboutMe',
+        'parents',
+        'books',
+        'contactMe',
+        'events',
+    ];
 
-   const createNavigation = () => {
-      const SVG_NS = "http://www.w3.org/2000/svg";
+    const labels = {
+        aboutMe: 'About Me',
+        parents: 'Parents',
+        books: 'Books',
+        contactMe: 'Contact Me',
+        events: 'Events',
+    };
 
-      const nav = document.createElement('nav');
-      const navContainer = document.createElement('div');
-      const linkContainer = document.createElement('div');
-      const image = document.createElement('img');
+    const el = {
+        content: () => document.getElementById('content'),
+        linkContainer: () => document.querySelector('.link-container'),
+    };
 
-      const svg = document.createElementNS(SVG_NS, 'svg');
-      const path = document.createElementNS(SVG_NS, 'path');
+    const init = () => {
+        el.content().appendChild(createNavigation());
+        createLinks(pages);
+    };
 
-      nav.className = "navigation";
-      navContainer.className = "navigation-container";
-      linkContainer.className = "link-container";
+    const createNavigation = () => {
+        const SVG_NS = 'http://www.w3.org/2000/svg';
 
-      image.src = illustratedJulie;
+        const nav = document.createElement('nav');
+        const navContainer = document.createElement('div');
+        const linkContainer = document.createElement('div');
+        const image = document.createElement('img');
 
-      svg.setAttribute('viewBox', '0 0 1440 200');
-      svg.setAttribute('preserveAspectRatio', 'none');
+        const svg = document.createElementNS(SVG_NS, 'svg');
+        const path = document.createElementNS(SVG_NS, 'path');
 
-      path.setAttribute('fill', '#B495F5');
-      path.setAttribute('d', 'M0,96 C240,160 480,160 720,130 C960,100 1200,50 1440,90 L1440,320 L0,320 Z');
+        nav.className = 'navigation';
+        navContainer.className = 'navigation-container';
+        linkContainer.className = 'link-container';
 
-      svg.appendChild(path);
+        image.src = illustratedJulie;
+        image.alt = 'Illustration of Julie';
+        image.className = 'navigation-illustration';
 
-      linkContainer.appendChild(image);
-      navContainer.appendChild(linkContainer);
-      nav.append(navContainer, svg);
+        svg.setAttribute('viewBox', '0 0 1440 200');
+        svg.setAttribute('preserveAspectRatio', 'none');
 
-      return nav;
-   }
+        path.setAttribute('fill', '#B495F5');
+        path.setAttribute(
+            'd',
+            'M0,96 C240,160 480,160 720,130 C960,100 1200,50 1440,90 L1440,320 L0,320 Z'
+        );
 
-   const createLinks = (links) => {
-      links.forEach((link) => {
-         const button = document.createElement('button');
-         const img = document.createElement('img');
-         button.className = 'link';
-         button.id = link;
+        svg.appendChild(path);
 
-         img.src = images[link]
-         button.appendChild(img);
-         button.addEventListener('click', () => {
-            modules[link].init();
-         })
-         el.linkContainer().appendChild(button);
-      });
-   }
+        linkContainer.appendChild(image);
+        navContainer.appendChild(linkContainer);
+        nav.append(navContainer, svg);
 
-   return { init }
-})()
+        return nav;
+    };
+
+    const createLinks = (links) => {
+        links.forEach((link) => {
+            const button = document.createElement('button');
+
+            button.className = `link link-${link}`;
+            button.id = link;
+            button.type = 'button';
+            button.textContent = labels[link];
+
+            button.setAttribute('aria-label', labels[link]);
+
+            button.addEventListener('click', () => {
+                modules[link].init();
+            });
+
+            el.linkContainer().appendChild(button);
+        });
+    };
+
+    return { init };
+})();
+
