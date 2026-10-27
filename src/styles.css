@@ -117,7 +117,6 @@ p {
 
 
 /** Navigation Bubbles **/
-
 .navigation .link-container .link {
     position: absolute;
     display: flex;
@@ -128,6 +127,7 @@ p {
     aspect-ratio: 1;
     height: auto;
     padding: 12px;
+    font-size: 21px;
 
     /* Watercolor-inspired background */
     background:
@@ -147,7 +147,6 @@ p {
 
     color: #302a30;
     font-family: 'Unkempt', sans-serif;
-    font-size: 21px;
     font-weight: 700;
     line-height: 1.1;
     text-align: center;
@@ -238,26 +237,6 @@ p {
     }
 }
 
-/* Individual bubble sizes */
-.navigation .link-container #aboutMe {
-    width: 145px;
-}
-
-.navigation .link-container #books {
-    width: 120px;
-}
-
-.navigation .link-container #parents {
-    width: 135px;
-}
-
-.navigation .link-container #contactMe {
-    width: 150px;
-}
-
-.navigation .link-container #events {
-    width: 115px;
-}
 
 #aboutMe {
     top: 0;
@@ -283,6 +262,7 @@ p {
     bottom: -10%;
     right: -30%;
 }
+
 
 /** Author Section **/
 .author-section {
@@ -369,6 +349,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    white-space: pre-line;
     gap: 10rem;
 }
 
@@ -867,28 +848,50 @@ footer {
             width: 100px;
             right: -20px;
         }
+
+    }
+
+    .navigation .link-container #aboutMe {
+        width: 100px;
+    }
+
+    .navigation .link-container #contactMe {
+        width: 110px;
+    }
+
+    .navigation .link-container #books {
+        width: 110px;
+    }
+
+    .navigation .link-container #parents {
+        width: 90px;
+    }
+
+    .navigation .link-container #events {
+        width: 90px;
     }
 
     #aboutMe {
-        left: -30px;
-    }
-
-    #parents {
-        left: -50px;
-    }
-
-    #books {
-        right: -30px;
+        left: -15px;
     }
 
     #contactMe {
-        right: -80px;
+        right: -25%;
+        bottom: 30%;
+    }
+
+    #parents {
+        left: -10%;
+    }
+
+    #books {
+        right: -15%;
     }
 
     #events {
-        right: -20px;
+        right: -10%;
+        bottom: -5%;
     }
-
 
     .link-container {
 
@@ -937,23 +940,45 @@ footer {
     }
 
     #aboutMe {
-        left: -20px;
+        left: -50px;
     }
 
     #parents {
-        left: -30px;
+        left: -40px;
     }
 
     #books {
-        right: -20px;
+        right: -40px;
     }
 
     #contactMe {
         right: -50px;
+        top: 105px;
     }
 
     #events {
-        right: -20px;
+        right: -30px;
+        bottom: -40px;
+    }
+
+    .navigation .link-container #aboutMe {
+        width: 95px;
+    }
+
+    .navigation .link-container #contactMe {
+        width: 90px;
+    }
+
+    .navigation .link-container #books {
+        width: 85px;
+    }
+
+    .navigation .link-container #parents {
+        width: 80px;
+    }
+
+    .navigation .link-container #events {
+        width: 70px;
     }
 
 

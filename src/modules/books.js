@@ -23,7 +23,13 @@ export const Books = (() => {
             image: samanthaSeeds,
             award: null,
             bookTitle: "Samantha Seeds",
-            content: ``,
+            content: `Something wonderful is about to grow in Miss Greene's kindergarten classroom!
+
+            When each student receives a tiny mystery seed to plant at home, excitement fills the air. Some children lovingly water their seeds, watch them with anticipation, and patiently wait for new life to appear. Others become distracted, give up, or forget to care for their little pots altogether.
+
+            As the mystery unfolds, Miss Greene gently reveals that the seeds were teaching an even greater lesson all along. Inspired by Jesus' Parable of the Sower, this heartwarming story helps children discover that God's Word is like a precious seed. When planted in hearts that are cared for with faith, love, and obedience, it can grow into something beautiful.
+
+            Filled with wonder, gentle encouragement, and timeless biblical truth, this delightful picture book invites young readers to cultivate hearts where God's love can take deep root and flourish.`,
             awardSpan: null,
             buyNow: true,
             buyNowLink: "https://www.authorhouse.com/en/bookstore/bookdetails/860746-daisys-delightful-day",
