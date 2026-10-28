@@ -32,7 +32,7 @@ export const Books = (() => {
             Filled with wonder, gentle encouragement, and timeless biblical truth, this delightful picture book invites young readers to cultivate hearts where God's love can take deep root and flourish.`,
             awardSpan: null,
             buyNow: true,
-            buyNowLink: "https://www.authorhouse.com/en/bookstore/bookdetails/860746-daisys-delightful-day",
+            buyNowLink: "",
             buyNowText: "Pre-Order Now",
             hasAward: false,
         }
