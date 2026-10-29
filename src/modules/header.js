@@ -10,7 +10,7 @@ export const Header = (() => {
 
     const render = () => {
         createHeader();
-        banner("Samantha Seeds will be available November 1st - November 21st!")
+        banner("Pre-order Samantha's Seeds from November 1st - November 21st!")
     }
 
     const banner = (message) => {
