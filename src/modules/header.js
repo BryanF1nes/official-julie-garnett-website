@@ -10,6 +10,7 @@ export const Header = (() => {
 
     const render = () => {
         createHeader();
+        banner("Samantha Seeds is now available for preorder!")
     }
 
     const banner = (message) => {

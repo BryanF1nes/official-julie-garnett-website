@@ -32,7 +32,7 @@ export const Books = (() => {
             Filled with wonder, gentle encouragement, and timeless biblical truth, this delightful picture book invites young readers to cultivate hearts where God's love can take deep root and flourish.`,
             awardSpan: null,
             buyNow: true,
-            buyNowLink: "",
+            buyNowLink: "https://square.link/u/KFYk9Jcr",
             buyNowText: "Pre-Order Now",
             hasAward: false,
         }
@@ -96,7 +96,9 @@ export const Books = (() => {
             if (book.buyNow) {
                 buyNow.id = "buyNow"
             }
+
             buyNow.textContent = book.buyNowText;
+            buyNow.dataset.url = book.buyNowLink;
 
             bookBlurb.append(bookTitle, bookDescription, buyNow);
             bookContent.append(bookImageContainer, bookBlurb);

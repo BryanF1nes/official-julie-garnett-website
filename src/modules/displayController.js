@@ -11,24 +11,30 @@ export const DisplayController = (() => {
 
 export const EventHandler = (() => {
     const bindEvents = () => {
-        const buyNow = document.getElementById('buyNow');
+        const buyNowButtons = document.querySelectorAll('#buyNow');
         const banner = document.querySelector('.banner-text');
 
-        if (buyNow) {
-            buyNow.addEventListener('click', handleBuyNow);
-        }
+        buyNowButtons.forEach((button) => {
+            button.addEventListener('click', handleBuyNow);
+        })
+
         if (banner) {
             banner.addEventListener('click', handleBanner);
         }
     };
 
-    const handleBuyNow = () => {
-        window.open("https://www.authorhouse.com/en/bookstore/bookdetails/860746-daisys-delightful-day");
+    const handleBuyNow = (event) => {
+        const link = event.currentTarget.dataset.url;
+
+        if (link) {
+            window.open(link, '_blank', 'noopener,noreferrer');
+        }
     };
 
     const handleBanner = () => {
         const content = document.getElementById('content');
         content.innerHTML = "";
+
         HomePage.init();
         bindEvents();
     };
